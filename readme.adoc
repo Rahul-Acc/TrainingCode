@@ -1,0 +1,109 @@
+= Ext JS 6
+
+== Instructor
+* Prabhu Sunderaraman
+* prabhu@durasoftindia.com
+* Blog: http://healthycoder.in
+* Books: Spring 3.0 Black Book, Practical Ext JS4
+
+== About the course
+* No power point presentations
+* Learn by writing code
+* Experiment, discuss and analyze by writing code
+
+== ToDo
+
+*	Need for Ext JS 6
+*	Features
+*	Pros and Cons
+*	How does it differ from other JS libraries?
+*	Ext JS vs. Sencha Touch
+*	Classic vs. Modern toolkits
+*	Setting up Ext JS 6 
+*	Sample application
+
+=== The JavaScript you need to know
+
+*	arguments
+*	Function Hoisting
+*	Higher order functions
+*	Closures
+*	JSON
+*	Objects
+*	Object Prototypes
+
+== Ext JS Common Core API
+
+*	Ext JS class architecture
+*	Ext.define
+*	Ext.create
+*	config, constructor
+*	Getters and setters
+*	System, Definition, Loading
+*	Statics
+*	Mixins
+*	Fundamental classes
+*	Ext.Element, Ext.CompositeElement, 
+*	Ext.Component
+*	Event Delegation
+
+== UI Components
+
+*	Ext.Component class
+*	Component library
+*	Component Manager
+*	Deferred Rendering
+*	ViewPort
+*	Containers; Panels, Windows
+*	Layout Manager
+*	Border, Card
+*	Validations
+*	Drag and Drop
+*	Tab Panels
+*	Navigation View
+
+== Working with data
+
+*	Data Stores
+*	Models, Proxies, Readers, Writers, Stores
+*	Ajax Requests
+*	Promise
+*	Data binding
+*	Validating data
+*	Types of Proxies
+*	Data Views
+*	Grids and Trees
+*	XTemplate
+
+== MVVM
+
+*	Anatomy of Ext JS 6 MVVM architecture
+*	MVC vs. MVVM
+*	Controllers, Models, Stores, Views
+*	View Models
+*	View Controllers
+*	References
+*	Routes
+*	Event Handling
+*	Sencha Cmd
+*	Building an MVC application
+*	app.json
+*	Responsive design
+*	Gestures
+
+== Introduction to Charting and Drawing
+
+*	Ext.draw
+*	Simple draw component
+*	Overview of charting package
+*	Pie, Bar charts
+
+== Styling, Unit testing and Packaging
+
+*	Styling and Theming
+*	Fashion
+*	Native Packaging
+*	Jasmine toolkit for Unit tests
+*	Localization
+*	Sencha Architect 
+*	Sencha Market
