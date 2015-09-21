@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.application({
+			name : "Hello",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					items : [
+						Ext.create("Ext.form.field.Text",{
+							fieldLabel : "Name"	
+						}),
+						Ext.create("Ext.button.Button",{
+							text : "Go"
+						})
+					],
+					renderTo : Ext.getBody()
+				});
+				
+				
+			}
+		});
+		</script>
+	</head>	
+</html>

@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.application({
+			name : "Hello",
+			launch : function(){
+				Ext.create("Ext.form.field.Checkbox",{
+					boxLabel : "Newsletter",
+					renderTo : Ext.getBody()
+				});
+				/*
+				Ext.create("Ext.form.Label",{
+					html : "What the hell is going on??",
+					renderTo : Ext.getBody()
+				});
+				*/
+				/*
+				Ext.create("Ext.button.Button",{
+					text : "Submit",
+					renderTo : Ext.getBody()
+				});
+					*/
+				/*
+				Ext.create("Ext.form.field.Text",{
+					fieldLabel : "Name",
+					renderTo : Ext.getBody()
+				});
+				*/
+				//alert("Hello Ext JS 6");
+			}
+		});
+		</script>
+	</head>	
+</html>
