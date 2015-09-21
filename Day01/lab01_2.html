@@ -3,8 +3,11 @@
 		<script src="lib/ext-all-debug.js"></script>
 		<link rel="stylesheet" href="lib/theme-neptune-all.css">
 		<style>
-			.message{
+			.wrong{
 				color : red;
+			}
+			.correct{
+				color : blue;
 			}
 		</style>
 		<script>
@@ -12,15 +15,20 @@
 			var userNameText = Ext.getCmp("username");
 			var passwordText = Ext.getCmp("password");
 			var messageLabel = Ext.getCmp("messagelabel");
+			messageLabel.removeCls(["wrong","correct"]);
 			if(userNameText.getValue() == "admin" &&
 				passwordText.getValue() == "admin"){
+					messageLabel.addCls("correct");
 					messageLabel.setHtml("Logging in...");
 					userNameText.disable();
 					passwordText.disable();
 					Ext.getCmp("loginbutton").disable();
 			}
-			else
+			else{
 				messageLabel.setHtml("Invalid Credentials");
+				messageLabel.addCls("wrong");
+			}
+				
 		}
 		Ext.application({
 			name : "Lab01",
@@ -50,8 +58,7 @@
 						{
 							xtype : "label",
 							id : "messagelabel",
-							html : "",
-							cls : "message"
+							html : ""
 						}		
 					],
 					renderTo : Ext.getBody()
