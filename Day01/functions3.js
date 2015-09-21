@@ -1,3 +1,19 @@
+function sayHello(arg){
+	
+}
+sayHello(10);
+
+var i = 1000;
+sayHello(i);
+
+sayHello(function(){});
+
+var j = function(){};
+sayHello(j);
+
+
+
+
 //Higher order function
 
 function confuseInParts(){
