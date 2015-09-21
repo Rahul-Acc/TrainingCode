@@ -1,0 +1,52 @@
+JavaScript
+	Programming Language
+	Runs on Client-side
+	form-Validation
+	DOM-based
+	useful for UI as well as logic
+	It's not a compiled language
+	
+JS Frameworks	
+	jQuery
+	Ext JS 6
+	DOJO
+	Angular JS
+	YUI, 
+	
+HTML 5
+	canvas
+
+Ext JS
+	Single Page Architecture
+	Sencha 
+		Ext JS and Sencha Touch(Mobile)
+		Ext JS 6
+		Modularity (MVC)
+		OO flavour (for Java developers)
+		Rich UI
+		HTML 5
+	It is really HEAVY WEIGHT	
+	JSON
+	Light-weight(!!!@#$%) JS framework
+	Multi-device support
+	
+
+
+
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+https://github.com/prabhu-durasoft/Sep-2015
