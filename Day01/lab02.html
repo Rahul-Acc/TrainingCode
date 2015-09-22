@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script>
+		var Ext = {
+			button : {
+				Button : {
+					
+				}
+			},
+			form : {
+				field : {
+					Text : {
+						
+					},
+					Checkbox : {
+						
+					}
+				}
+			}
+			
+		};
+		
+			//DO NOT INCLUDE js file
+			//IMPLEMENT THIS SYNTAX/API
+/*
+		var Ext = {
+			application : function(arg){
+				arg.launch();
+			}
+		};
+*/
+		var Ext = {};
+		Ext.application = function(ganpati){
+			ganpati.launch();
+		}
+			Ext.application({
+				name : "Lab02",
+				launch : function(){
+					alert("Hello Ext JS 6");
+				}
+			});
+		</script>
+	</head>	
+</html>
