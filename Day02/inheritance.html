@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<script>
+		Ext.define("Employee",{
+			config : {
+				name : "",
+				salary : 5000
+			},
+			constructor : function(cfg){
+				this.initConfig(cfg);
+			},
+			work : function(hours){
+				console.log(this.getName() + " sleeps " + hours + " hours");
+			}
+		});
+		Ext.define("Manager",{
+			extend : "Employee",
+			config : {
+				level : 3
+			},
+			work : function(hours){
+				this.callParent(arguments);
+				console.log(this.getName() + " snores " + hours + " hours");
+			}
+		});
+		var m1 = Ext.create("Manager",{
+			name : "Sam", salary : 100000, level: 4
+		});
+		m1.work(12);
+		
+		
+		</script>
+	</head>	
+</html>

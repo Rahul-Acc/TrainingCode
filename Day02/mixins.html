@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<script>
+		Ext.define("Shape",{
+			draw : function(){}
+		});
+		Ext.define("Figure",{
+			erase : function(){}
+		});
+		//class Circle implements Shape,Figure{}
+		Ext.define("Circle",{
+			mixins : ["Shape","Figure"]
+		});
+		var c1 = Ext.create("Circle",{});
+		c1.draw();
+		c1.erase();
+		</script>
+	</head>	
+</html>
