@@ -13,12 +13,12 @@ var server = http.createServer(function(req,res){
 function getCountryInfo(req,res){
 	var queryString = require("url").parse(req.url,true).query;
 	var country = queryString.country;
-	var capital = "NA";
+	var capital = {capital:"NA",continent:"NA",population:"NA"};
 	if(country == "India")
-		capital = "New Delhi";
+		capital = {capital:"New Delhi",continent:"Asia",population:"1.2 billion"};
 	else if(country == "USA")
-		capital = "Washington DC";
-	res.end(capital);
+		capital = {capital:"Washington DC",continent:"NA",population:"50 million"};
+	res.end(JSON.stringify(capital));
 }
 function loadFile(filePath,res){
 	fs.readFile(filePath,function(err,data){
