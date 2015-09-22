@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script src="game.js"></script>
+		<script>
+		var game = Ext.create("Game",{});
+		var gameOverWin;
+		function playAgain(){
+			game = Ext.create("Game",{});
+			Ext.getCmp("guesstext").setValue("");
+			Ext.getCmp("messagelabel").setHtml("");
+			Ext.getCmp("attemptslabel").setHtml("");
+		}
+		function stopPlaying(){
+			Ext.getCmp("playbutton").disable();
+		}		
+		function playButtonClicked(){
+			var guessText = Ext.getCmp("guesstext");
+			game.play(guessText.getValue());
+			Ext.getCmp("messagelabel").setHtml(game.getMessage());
+			Ext.getCmp("attemptslabel").setHtml("Attempts: " + game.getAttempts());
+			if(game.getGameOver()){
+				if(gameOverWin == undefined){
+					gameOverWin = Ext.create("Ext.window.Window",{
+						height : 150,
+						width : 200,
+						title : "Game Over",
+						items : [
+							{
+								xtype : "label",
+								html : game.getMessage()
+							},
+							{
+								xtype : "label",
+								html : " Do you want to play another game?"
+							}
+						],
+						buttons : [
+							{
+								text : "Yes",
+								listeners : {
+									click : function(){
+										playAgain();
+										gameOverWin.hide();
+									}
+								}
+							},
+							{
+								text : "No",
+								listeners : {
+									click : function(){
+										stopPlaying();
+										gameOverWin.hide();
+									}
+								}
+							}
+						]
+					});
+				}
+				gameOverWin.show();
+			}
+			else
+				guessText.selectText();
+		}
+		
+		Ext.application({
+			name : "GuessingGame",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					title : "Welcome to the Guessing game",
+					items : [
+						{
+							xtype : "textfield",
+							fieldLabel : "Enter you Guess",
+							id : "guesstext"
+						},
+						{
+							xtype : "button",
+							text : "Play",
+							id : "playbutton",
+							listeners : {
+								click : playButtonClicked
+							}
+						},
+						{
+							xtype : "label",
+							id : "messagelabel"
+						},
+						{
+							xtype : "label",
+							id : "attemptslabel"
+						}
+					],
+					renderTo : Ext.getBody()
+				});
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</script>
+	</head>	
+</html>
