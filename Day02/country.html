@@ -5,6 +5,9 @@
 		<script>
 		function getInfo(){
 			var countryValue = Ext.getCmp("countrytext").getValue();
+			var loadMask = Ext.create("Ext.LoadMask",{
+				target : Ext.getCmp("countrytext")
+			});
 			Ext.Ajax.request({
 				url : "/info",
 				method : "GET",
@@ -12,6 +15,7 @@
 					country : countryValue
 				},
 				success : function(response){
+					loadMask.hide();
 					var output = response.responseText;
 					output = Ext.JSON.decode(output);
 					Ext.getCmp("capitallabel").setHtml(output.capital);
@@ -19,6 +23,7 @@
 					Ext.getCmp("populationlabel").setHtml(output.population);
 				}
 			});
+			loadMask.show();
 		}	
 		Ext.application({
 			name : "AJAX",

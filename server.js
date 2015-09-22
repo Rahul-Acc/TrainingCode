@@ -11,14 +11,17 @@ var server = http.createServer(function(req,res){
 	}
 });
 function getCountryInfo(req,res){
-	var queryString = require("url").parse(req.url,true).query;
-	var country = queryString.country;
-	var capital = {capital:"NA",continent:"NA",population:"NA"};
-	if(country == "India")
-		capital = {capital:"New Delhi",continent:"Asia",population:"1.2 billion"};
-	else if(country == "USA")
-		capital = {capital:"Washington DC",continent:"NA",population:"50 million"};
-	res.end(JSON.stringify(capital));
+	setTimeout(function(){
+		var queryString = require("url").parse(req.url,true).query;
+		var country = queryString.country;
+		var capital = {capital:"NA",continent:"NA",population:"NA"};
+		if(country == "India")
+			capital = {capital:"New Delhi",continent:"Asia",population:"1.2 billion"};
+		else if(country == "USA")
+			capital = {capital:"Washington DC",continent:"NA",population:"50 million"};
+		res.end(JSON.stringify(capital));		
+	},4000);
+
 }
 function loadFile(filePath,res){
 	fs.readFile(filePath,function(err,data){
