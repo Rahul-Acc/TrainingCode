@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<script>
+		Ext.define("Accenture",{
+			singleton : true,
+			operate : function(){
+				console.log("Operates all days");
+			}
+		});
+		//var a1 = Ext.create("Accenture",{});
+		//a1.operate();
+		Accenture.operate();
+		</script>
+	</head>	
+</html>
