@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<script>
+		Ext.define("Book",{
+			config : {
+				title : ""
+			},
+			statics : {
+				numberOfBooksSold : 0
+			},
+			constructor : function(data){
+				this.initConfig(data);
+				this.statics().numberOfBooksSold++;
+			}
+		});
+		var b1 = Ext.create("Book",{
+			title : "ABC"
+		});
+		var b2 = Ext.create("Book",{
+			title : "ABC"
+		});
+		var b3 = Ext.create("Book",{
+			title : "ABC"
+		});
+		alert(Book.numberOfBooksSold);
+		</script>
+	</head>	
+</html>
