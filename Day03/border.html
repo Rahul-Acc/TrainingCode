@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.application({
+			name : "Layouts",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					height : "100%",
+					width : "100%",
+					layout : {
+						type : "border"
+					},
+					items : [
+						{
+							xtype : "panel",
+							layout : "hbox",
+							region : "north",
+							height : 50,
+							defaults: {
+								xtype:"button",
+								width:100,padding:1,margin:1
+							},
+							items : [
+								{
+									text : "File", 
+									menu : {
+										xtype : "menu",
+										items : [
+											{text:"Open"},
+											{text:"Save"}
+										]
+									}
+								},
+								{
+									text : "Edit",
+									menu : {
+										xtype : "menu",
+										items : [
+											{text:"Undo"},
+											{text:"Copy"}
+										]
+									}
+								},
+								{text : "View"}
+							]
+						},
+						{
+							xtype : "panel",
+							region : "west",
+							width : 200,
+							split : true,
+							collapsible : true,
+							layout : "accordion",
+							items : [
+								{xtype:"panel",title:"Inbox"},
+								{xtype:"panel",title:"Drafts"},
+								{xtype:"panel",title:"Outbox"},
+								{xtype:"panel",title:"Folders"}
+							]
+						},
+						{
+							xtype : "tabpanel",
+							region : "center",
+							items : [
+								{xtype:"panel",title:"Mail"},
+								{xtype:"panel",title:"Promotions"},
+								{xtype:"panel",title:"Social"}
+							]
+						}
+					],
+					renderTo : Ext.getBody()
+				});
+			}
+		});
+		</script>
+	</head>	
+</html>

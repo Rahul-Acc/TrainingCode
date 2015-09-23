@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.application({
+			name : "Layouts",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					height : "100%",
+					width : "100%",
+					defaults : {
+							xtype : "button", 
+							width : 100, height : 100,
+							margin : "5"
+					},
+					layout : {
+						type :  "vbox",//"table",//"vbox",//hbox
+						//columns : 2,
+						align : "middle",
+						pack : "center"
+					},
+					items : [
+						{
+							text : "A"
+						},
+						{
+							text : "B"
+						},
+						{
+							text : "C"
+						},
+						{
+							text : "D"
+						}
+					],
+					renderTo : Ext.getBody()
+				});
+			}
+		});
+		</script>
+	</head>	
+</html>
