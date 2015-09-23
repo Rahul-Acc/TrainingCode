@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		function addPerson(){
+			var name = Ext.getCmp("nametext").getValue();
+			var age = Ext.getCmp("agetext").getValue();
+			peopleStore.add({name:name,age:age});
+		}
+		Ext.define("AddPersonPanel",{
+			extend : "Ext.panel.Panel",
+			xtype : "addpersonpanel",
+			title : "Add Person",
+			items : [
+				{xtype:"textfield",id:"nametext",fieldLabel:"Name"},
+				{xtype:"textfield",id:"agetext",fieldLabel:"Age"},
+				{
+					xtype:"button",
+					text:"Add",
+					listeners : {
+						click : addPerson
+					}
+				}				
+			]
+		});
+		Ext.define("PeopleGridPanel",{
+			extend : "Ext.grid.Panel",
+			xtype : "peoplegridpanel",
+			title : "People",
+			selModel : "rowmodel",
+			plugins : {
+				ptype : "rowediting",
+				clicksToEdit : 2
+			},
+			columns : [
+				{
+					text : "Name",
+					dataIndex:"name",
+					editor : {
+						xtype : "textfield"
+					}
+				},
+				{
+					text : "Age",dataIndex:"age",
+					editor : {
+						xtype : "textfield"
+					}
+				}
+			]
+		});
+		Ext.define("PeopleStore",{
+			extend : "Ext.data.Store",
+			fields : ["name","age"]
+		});
+		
+		var peopleStore = Ext.create("PeopleStore");
+		Ext.application({
+			name : "Lab01",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					items : [
+						{
+							xtype : "addpersonpanel",
+							height : 200,
+							width : 500
+						},
+						{
+							xtype : "peoplegridpanel",
+							height : 400,width:300,
+							store : peopleStore,
+						}
+					],
+					renderTo : Ext.getBody()
+				});
+			}
+		});
+		</script>
+	</head>	
+</html>
