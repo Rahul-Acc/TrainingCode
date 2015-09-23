@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.define("CountryStore",{
+			extend : "Ext.data.Store",
+			fields : ["country","capital"],
+			autoLoad : false,
+			proxy : {
+				type : "ajax",
+				url : "/countries",
+				reader : {
+					type : "json",
+					rootProperty : "globe"
+				}
+			}
+		});
+		var countryStore = Ext.create("CountryStore");
+		Ext.application({
+			name : "Ajaxstore",
+			launch : function(){
+				Ext.create("Ext.grid.Panel",{
+					store : countryStore,
+					columns : [
+						{header:"Country",dataIndex:"country"},
+						{header:"Capital",dataIndex:"capital"}
+					],
+					listeners : {
+						headerclick : function(){
+							countryStore.load();
+						}
+					},
+					renderTo : Ext.getBody()
+				});
+			}
+		});
+		</script>
+	</head>	
+</html>
