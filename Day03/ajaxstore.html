@@ -3,6 +3,25 @@
 		<script src="lib/ext-all-debug.js"></script>
 		<link rel="stylesheet" href="lib/theme-neptune-all.css">
 		<script>
+		function addCountry(){
+			
+		}
+		Ext.define("AddCountryPanel",{
+			extend : "Ext.panel.Panel",
+			xtype : "addcountrypanel",
+			title : "Add Country",
+			items : [
+				{xtype:"textfield",id:"countrytext",fieldLabel:"Country"},
+				{xtype:"textfield",id:"capitaltext",fieldLabel:"Capital"},
+				{
+					xtype:"button",
+					text:"Add",
+					listeners : {
+						click : addCountry
+					}
+				}				
+			]
+		});
 		Ext.define("CountryStore",{
 			extend : "Ext.data.Store",
 			fields : ["country","capital"],
@@ -20,18 +39,30 @@
 		Ext.application({
 			name : "Ajaxstore",
 			launch : function(){
-				Ext.create("Ext.grid.Panel",{
-					store : countryStore,
-					columns : [
-						{header:"Country",dataIndex:"country"},
-						{header:"Capital",dataIndex:"capital"}
-					],
-					listeners : {
-						headerclick : function(){
-							countryStore.load();
+				Ext.create("Ext.panel.Panel",{
+					renderTo : Ext.getBody(),
+					items : [
+						{
+							xtype : "addcountrypanel",
+							height:400,
+							width:400
+						},
+						{
+							xtype : "gridpanel",
+							store : countryStore,
+							height:400,width:400,
+							columns : [
+								{header:"Country",dataIndex:"country"},
+								{header:"Capital",dataIndex:"capital"}
+							],
+							listeners : {
+								headerclick : function(){
+									if(countryStore.getTotalCount() == 0)
+										countryStore.load();
+								}
+							}							
 						}
-					},
-					renderTo : Ext.getBody()
+					]
 				});
 			}
 		});
