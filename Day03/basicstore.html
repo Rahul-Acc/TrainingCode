@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.define("Country",{
+			extend : "Ext.data.Model",
+			fields : ["country","capital"],
+			hasMany : "cities"
+		});
+		Ext.define("City",{
+			extend : "Ext.data.Model",
+			fields : ["name","population","state"]
+		});
+		Ext.define("CountryStore",{
+			extend : "Ext.data.Store",
+			model : "Country",
+			data : [
+				{country:"India",capital:"New Delhi",cities:[{name:"Mumbai"}]},
+				{country:"USA",capital:"Washington DC",cities:[{name:"Houston"}]},
+				{country:"UK",capital:"London",cities:[{name:"Bristol"}]}
+			]
+		});
+		var countryStoreObj = Ext.create("CountryStore");
+		Ext.application({
+			name : "Data",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					title : "Store",
+					items : [
+						{
+							xtype : "combo",
+							store : countryStoreObj,
+							fieldLabel : "Country",
+							queryMode : "local",
+							displayField : "country",
+							listeners : {
+								select : function(combo,record){
+									var index = countryStoreObj.indexOf(record);
+									index++;
+									if(index == countryStoreObj.getCount())
+										index = 0;
+									var nextRecord = countryStoreObj.getAt(index);
+									alert(nextRecord.get("country"));
+								}
+							}
+						}
+					],
+					renderTo : Ext.getBody()
+				});
+			}
+		});
+		</script>
+	</head>	
+</html>
