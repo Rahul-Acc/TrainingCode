@@ -5,11 +5,22 @@ var server = http.createServer(function(req,res){
 	if(url.match(/info/)){
 		getCountryInfo(req,res);	
 	}
+	else if(url.match(/countries/)){
+		getAllCountries(req,res);
+	}
 	else{
 		var filePath = url.substring(1);
 		loadFile(filePath,res);
 	}
 });
+function getAllCountries(req,res){
+	var countries = {globe:[
+		{country:"India",capital:"New Delhi"},
+		{country:"USA",capital:"Washington DC"},
+		{country:"UK",capital:"London"}
+	]};
+	res.end(JSON.stringify(countries));
+}
 function getCountryInfo(req,res){
 	setTimeout(function(){
 		var queryString = require("url").parse(req.url,true).query;
