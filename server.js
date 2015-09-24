@@ -10,6 +10,8 @@ var server = http.createServer(function(req,res){
 	}
 	else{
 		var filePath = url.substring(1);
+		if(filePath.indexOf("?") != -1)
+			filePath = filePath.substring(0,filePath.indexOf("?")); 
 		loadFile(filePath,res);
 	}
 });
