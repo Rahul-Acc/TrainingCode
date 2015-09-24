@@ -6,9 +6,10 @@ Ext.define("Mumbai.view.LoginScreenViewController",{
 		var password = this.lookupReference("passwordtext");
 		//alert(userName.getValue() + " " + password.getValue());
 
+		this.getView().destroy();
 		Mumbai.getApplication().viewport.add({
 			xtype  : "homescreen"
 		});
-		Mumbai.getApplication().viewport.setActiveItem(1);
+		//Mumbai.getApplication().viewport.setActiveItem(1);
 	}
 });
