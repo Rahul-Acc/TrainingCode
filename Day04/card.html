@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.application({
+			name : "Layout",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					id : "mainpanel",
+					renderTo : Ext.getBody(),
+					defaults : { xtype:"button"},
+					layout : "card",
+					activeItem : 0,
+					items : [
+						{
+							text : "A",
+							listeners : {
+								click : function(){
+									Ext.getCmp("mainpanel").setActiveItem(1);
+								}
+							}
+						},
+						{xtype:"panel",title : "This is Screen 2"},
+						{text : "C"},
+						{text : "D"},
+					]
+				});
+			}
+		});
+		</script>
+	</head>	
+</html>
