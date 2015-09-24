@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.define("LoginScreen",{
+			extend : "Ext.panel.Panel",
+			xtype : "loginscreen",
+			title : "Login",
+			items : [
+				{xtype:"textfield",fieldLabel:"User name"},
+				{xtype:"textfield",fieldLabel:"Password",inputType:"password"},
+				{
+					xtype : "button", text : "Login",
+					listeners : {
+						click : function(){
+							Ext.getCmp("mainpanel").setActiveItem(1);
+						}
+					}
+				}
+			]
+		});
+		
+		Ext.define("HomeScreen",{
+			extend : "Ext.panel.Panel",
+			xtype : "homescreen",
+			items : [
+				{
+					xtype : "toolbar",layout : "hbox",
+					style : {
+						backgroundColor : "#157fcc",
+						color : "#fff",
+						fontWeight : "bold"
+					},
+					items : [
+						{
+							xtype : "label",
+							html : "Welcome",
+							flex : 2
+						},
+						{
+							xtype : "button",
+							text : "Logout",
+							listeners : {
+								click : function(){
+									Ext.getCmp("mainpanel").setActiveItem(0);
+								}
+							}
+						}
+					]
+				}
+			]
+		});
+		
+		Ext.application({
+			name : "Layout",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					id : "mainpanel",
+					layout : "card",
+					renderTo : Ext.getBody(),
+					items : [
+						{xtype:"loginscreen"},
+						{xtype:"homescreen"}
+					]
+				});
+			}
+		});
+		</script>
+	</head>	
+</html>
