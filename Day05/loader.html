@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		var fileStore = Ext.create("Ext.data.Store",{
+			fields : ["name","value"],
+			data : [
+				{name:"File A",value:"A.js"},
+				{name:"File B",value:"B.js"},
+			]
+		});
+		Ext.application({
+			name : "LoaderExample",
+			launch : function(){
+				Ext.create("Ext.container.Viewport",{
+					renderTo : Ext.getBody(),
+					items : [
+						{
+							xtype  : "combobox",
+							store : fileStore,
+							displayField : "name",
+							valueField : "value",
+							listeners : {
+								select : function(src,record){
+									alert(record.get("value"));
+									Ext.Loader.loadScript(record.get("value"));
+								}
+							},
+							fieldLabel : "Files"
+						}
+					]
+				});
+			  }
+			});
+		</script>
+	</head>
+</html>

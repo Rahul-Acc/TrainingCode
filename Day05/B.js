@@ -1,0 +1,5 @@
+Ext.define("SomeclassB",{
+	statics : {
+		
+	}
+});
