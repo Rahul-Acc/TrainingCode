@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.define("MyWindow",{
+			extend : "Ext.window.Window",
+			height : 300,width:300,
+			items : [
+				{
+					xtype : "textfield",
+					fieldLabel : "Comments"
+				},
+				// {
+				// 	xtype : "toolbar",
+				// 	docked : "bottom",
+				// 	items : [
+						{
+							xtype :  "button",
+							text : "Cancel"
+						},
+						{
+							xtype :  "button",
+							text : "Save"
+						}
+//					]
+//				}
+			]
+		});
+		var win;
+		function openWindow(){
+			if(!win)
+				win = Ext.create("MyWindow");
+			win.show();
+		}
+		Ext.application({
+			name : "LoaderExample",
+			launch : function(){
+				Ext.create("Ext.container.Viewport",{
+					renderTo : Ext.getBody(),
+					items : [
+						{
+							xtype : "button",
+							text : "Click",
+							listeners : {
+								click : openWindow
+							}
+						}
+					]
+				});
+			  }
+			});
+		</script>
+	</head>
+</html>

@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.define("CancelAndSubmitButtons",{
+			extend : "Ext.Component",
+			xtype : "cancelandsubmit",
+			tpl : '<input type="button" class="x-btn-button" value="Cancel"><br/><input type="button" value="Submit">',
+			initComponent : function(){
+				this.data = {};
+				this.callParent(arguments);
+			}
+		});
+		Ext.define("Link",{
+			extend : "Ext.Component",
+			xtype  :"link",
+			tpl : '<a href="{url}" style="text-decoration:none;">{urltext}</a>',
+			initComponent : function(){
+				var me = this;
+				this.data = {
+					url : me.address,
+					urltext : me.text
+				};
+				this.callParent(arguments);
+			}
+		});
+		
+		Ext.application({
+			name : "LoaderExample",
+			launch : function(){
+				Ext.create("Ext.container.Viewport",{
+					renderTo : Ext.getBody(),
+					items : [
+						{
+							xtype : "link",
+							address : "http://www.sify.com",
+							text : "Sify"
+						},
+						{
+							xtype  : "cancelandsubmit"
+						},
+						{xtype : "button",text:"Sample"}
+					]
+				});
+			  }
+			});
+		</script>
+	</head>
+</html>

@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		Ext.define("Link",{
+			extend : "Ext.Component",
+			xtype  :"link",
+			autoEl : {
+				tag : "a",
+				html : "Search",
+				title : "Cool",
+				href : "http://www.google.com"
+			}
+		});
+		Ext.application({
+			name : "LoaderExample",
+			launch : function(){
+				Ext.create("Ext.container.Viewport",{
+					renderTo : Ext.getBody(),
+					items : [
+						{
+							xtype : "link",
+							dummy : "Dummy"
+						}
+					]
+				});
+			  }
+			});
+		</script>
+	</head>
+</html>

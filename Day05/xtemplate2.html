@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		var data = [
+			{country:"India",capital:"New Delhi",continent:"Asia"},
+			{country:"UK",capital:"London",continent:"Europe"},
+			{country:"USA",capital:"Washington DC",continent:"NA"},
+			{country:"SL",capital:"Colombo",continent:"Asia"}
+		];
+		Ext.define("MyTemplates",{
+			singleton : true,
+			template1 : Ext.create("Ext.XTemplate",
+							'<tpl for=".">',
+								'<tpl if="continent == \'Asia\'">',
+								  '<p style="color:red">{country}</p>',
+								'<tpl else>',
+								  '<p>{country}</p>',
+								'</tpl>',
+							'</tpl>'
+						)
+		});
+		
+				
+		Ext.application({
+			name : "XTemplateExample",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					renderTo : Ext.getBody(),
+					html : MyTemplates.template1.apply(data)
+				});
+			}
+		});
+		</script>
+	</head>
+</html>

@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script src="lib/ext-all-debug.js"></script>
+		<link rel="stylesheet" href="lib/theme-neptune-all.css">
+		<script>
+		var data = {
+			title : "This is the title of the Panel",
+			subtitle : "Lunch time"
+		};
+		Ext.define("MyTemplates",{
+			singleton : true,
+			template1 : Ext.create("Ext.XTemplate",
+							'<b>{title}</b>',
+							'<small>({subtitle})</small>'
+						)
+		});
+		
+				
+		Ext.application({
+			name : "XTemplateExample",
+			launch : function(){
+				Ext.create("Ext.panel.Panel",{
+					renderTo : Ext.getBody(),
+					html : MyTemplates.template1.apply(data)
+				});
+			}
+		});
+		</script>
+	</head>
+</html>
