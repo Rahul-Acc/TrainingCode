@@ -6,7 +6,6 @@ Ext.define("Day05.view.GameViewModel",{
 		attempts : 0
 	},
 	data : {
-		target : Ext.Number.randomInt(1,100),
 		attemptstext : "",
 		messagetext : "",
 		guess : -1
